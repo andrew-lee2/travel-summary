@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import MenuButton from './components/MenuButton';
-import BackgroundImage from './components/BackgroundMain';
+import BasicExample from './components/Routing';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <BackgroundImage/>
-        <MenuButton/>
-      </div>
+        <div className="App">
+          <BasicExample/>
+        </div>
+
     );
   }
 }

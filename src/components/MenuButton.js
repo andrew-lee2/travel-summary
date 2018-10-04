@@ -1,8 +1,11 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
+import Grid from '@material-ui/core/Grid';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import grey from '@material-ui/core/colors/grey';
 
 const options = [
   'None',
@@ -16,6 +19,15 @@ const options = [
 ];
 
 const ITEM_HEIGHT = 48;
+
+const theme = createMuiTheme({
+  palette: {
+    primary: grey,
+    secondary: {
+      main: '#DCDCDC',
+    },
+  },
+});
 
 class MenuButton extends React.Component {
   state = {
@@ -35,15 +47,18 @@ class MenuButton extends React.Component {
     const open = Boolean(anchorEl);
 
     return (
-      <div>
+      <Grid container>
+        <MuiThemeProvider theme={theme}>
         <IconButton
           aria-label="More"
           aria-owns={open ? 'long-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
+          color="primary"
         >
-          <MenuIcon />
+          <MenuIcon/>
         </IconButton>
+        </MuiThemeProvider>
         <Menu
           id="long-menu"
           anchorEl={anchorEl}
@@ -62,7 +77,7 @@ class MenuButton extends React.Component {
             </MenuItem>
           ))}
         </Menu>
-      </div>
+      </Grid>
     );
   }
 }
