@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import BasicExample from './components/Routing';
+import BackgroundImage from "./components/BackgroundMain";
+import MenuButton from "./components/MenuButton";
 
 class App extends Component {
   render() {
     return (
-        <div className="App">
-          <BasicExample/>
-        </div>
+      <div className="App">
+        <BackgroundImage/>
+        <MenuButton/>
+      </div>
 
     );
   }

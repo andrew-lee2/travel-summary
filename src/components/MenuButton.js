@@ -1,22 +1,13 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import grey from '@material-ui/core/colors/grey';
 
-const options = [
-  'None',
-  'Atria',
-  'Callisto',
-  'Dione',
-  'Ganymede',
-  'Hangouts Call',
-  'Luna',
-  'Oberon',
-];
 
 const ITEM_HEIGHT = 48;
 
@@ -35,29 +26,29 @@ class MenuButton extends React.Component {
   };
 
   handleClick = event => {
-    this.setState({ anchorEl: event.currentTarget });
+    this.setState({anchorEl: event.currentTarget});
   };
 
   handleClose = () => {
-    this.setState({ anchorEl: null });
+    this.setState({anchorEl: null});
   };
 
   render() {
-    const { anchorEl } = this.state;
+    const {anchorEl} = this.state;
     const open = Boolean(anchorEl);
 
     return (
       <Grid container>
         <MuiThemeProvider theme={theme}>
-        <IconButton
-          aria-label="More"
-          aria-owns={open ? 'long-menu' : null}
-          aria-haspopup="true"
-          onClick={this.handleClick}
-          color="primary"
-        >
-          <MenuIcon/>
-        </IconButton>
+          <IconButton
+            aria-label="More"
+            aria-owns={open ? 'long-menu' : null}
+            aria-haspopup="true"
+            onClick={this.handleClick}
+            color="primary"
+          >
+            <MenuIcon/>
+          </IconButton>
         </MuiThemeProvider>
         <Menu
           id="long-menu"
@@ -71,11 +62,16 @@ class MenuButton extends React.Component {
             },
           }}
         >
-          {options.map(option => (
-            <MenuItem key={option} selected={option === 'Pyxis'} onClick={this.handleClose}>
-              {option}
+          <Link to="/about" style={{textDecoration: 'none', display: 'block'}}>
+            <MenuItem>
+              about
             </MenuItem>
-          ))}
+          </Link>
+          <Link to="/topics" style={{textDecoration: 'none', display: 'block'}}>
+            <MenuItem>
+              topics
+            </MenuItem>
+          </Link>
         </Menu>
       </Grid>
     );

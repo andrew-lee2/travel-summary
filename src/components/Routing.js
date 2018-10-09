@@ -6,20 +6,6 @@ import MenuButton from "./MenuButton";
 const BasicExample = () => (
   <Router>
     <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/topics">Topics</Link>
-        </li>
-      </ul>
-
-      <hr />
-
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
@@ -30,7 +16,6 @@ const BasicExample = () => (
 const Home = () => (
   <div>
     <BackgroundImage/>
-    {/*TODO i think we need to pass routes here?*/}
     <MenuButton/>
   </div>
 );
@@ -71,4 +56,4 @@ const Topic = ({ match }) => (
   </div>
 );
 
-export default BasicExample;
+export { BasicExample, Home };
